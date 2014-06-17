@@ -8,6 +8,8 @@
 
 import UIKit
 
+let DataProviderPath = "https://ziofritz.s3.amazonaws.com/fb-friends.json"
+
 
 class Friend {
     var name : String
@@ -31,7 +33,7 @@ class Friend {
 class DataProvider {
     
     class func friends() -> Array<Friend> {
-        let url = NSURL(string: "http://dev.ziofritz.com/fb-friends.json")
+        let url = NSURL(string: DataProviderPath)
         var error : NSError? = nil
         let data = NSData.dataWithContentsOfURL(url, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &error)
         let friendsAR = NSJSONSerialization.JSONObjectWithData(data , options: NSJSONReadingOptions.AllowFragments, error: &error) as Array<Dictionary<String, String>>
@@ -47,7 +49,6 @@ class DataProvider {
             dispatch_async(bkgQueue){
                 friend.cacheImage()
             };
-            
         }
         
         return friends
