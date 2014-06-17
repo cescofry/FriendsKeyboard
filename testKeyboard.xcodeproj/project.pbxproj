@@ -15,6 +15,8 @@
 		9B47785119508BDC00D7D11F /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B47785019508BDC00D7D11F /* KeyboardViewController.swift */; };
 		9B47785419508BDC00D7D11F /* com.yammer-inc.testKeyboard.customKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9B47784C19508BDC00D7D11F /* com.yammer-inc.testKeyboard.customKeyboard.appex */; };
 		9B47785B19508DAE00D7D11F /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B47785019508BDC00D7D11F /* KeyboardViewController.swift */; };
+		9B80BBD21950CA2D000ABFE4 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B80BBD11950CA2D000ABFE4 /* DataProvider.swift */; };
+		9B80BBD31950CA2D000ABFE4 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B80BBD11950CA2D000ABFE4 /* DataProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		9B47784C19508BDC00D7D11F /* com.yammer-inc.testKeyboard.customKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "com.yammer-inc.testKeyboard.customKeyboard.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B47784F19508BDC00D7D11F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B47785019508BDC00D7D11F /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		9B80B7C71950C7B7000ABFE4 /* BridgeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
+		9B80BBD11950CA2D000ABFE4 /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,11 +122,13 @@
 		9B47782819508BBE00D7D11F /* testKeyboard */ = {
 			isa = PBXGroup;
 			children = (
+				9B80B7291950C582000ABFE4 /* Ext */,
 				9B47782B19508BBE00D7D11F /* AppDelegate.swift */,
 				9B47782D19508BBE00D7D11F /* ViewController.swift */,
 				9B47782F19508BBE00D7D11F /* Main.storyboard */,
 				9B47783219508BBE00D7D11F /* Images.xcassets */,
 				9B47782919508BBE00D7D11F /* Supporting Files */,
+				9B80B7C71950C7B7000ABFE4 /* BridgeHeader.h */,
 			);
 			path = testKeyboard;
 			sourceTree = "<group>";
@@ -155,6 +161,7 @@
 		9B47784D19508BDC00D7D11F /* customKeyboard */ = {
 			isa = PBXGroup;
 			children = (
+				9B80BBD11950CA2D000ABFE4 /* DataProvider.swift */,
 				9B47785019508BDC00D7D11F /* KeyboardViewController.swift */,
 				9B47784E19508BDC00D7D11F /* Supporting Files */,
 			);
@@ -167,6 +174,13 @@
 				9B47784F19508BDC00D7D11F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9B80B7291950C582000ABFE4 /* Ext */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Ext;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +315,7 @@
 			files = (
 				9B47782E19508BBE00D7D11F /* ViewController.swift in Sources */,
 				9B47785B19508DAE00D7D11F /* KeyboardViewController.swift in Sources */,
+				9B80BBD21950CA2D000ABFE4 /* DataProvider.swift in Sources */,
 				9B47782C19508BBE00D7D11F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,6 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B80BBD31950CA2D000ABFE4 /* DataProvider.swift in Sources */,
 				9B47785119508BDC00D7D11F /* KeyboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,6 +456,7 @@
 				INFOPLIST_FILE = testKeyboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = testKeyboard/BridgeHeader.h;
 			};
 			name = Debug;
 		};
@@ -451,6 +468,7 @@
 				INFOPLIST_FILE = testKeyboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = testKeyboard/BridgeHeader.h;
 			};
 			name = Release;
 		};
@@ -535,6 +553,7 @@
 				9B47784419508BBE00D7D11F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B47784519508BBE00D7D11F /* Build configuration list for PBXNativeTarget "testKeyboardTests" */ = {
 			isa = XCConfigurationList;
@@ -543,6 +562,7 @@
 				9B47784719508BBE00D7D11F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B47785719508BDC00D7D11F /* Build configuration list for PBXNativeTarget "customKeyboard" */ = {
 			isa = XCConfigurationList;
@@ -551,6 +571,7 @@
 				9B47785919508BDC00D7D11F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -17,6 +17,8 @@ class KeyboardViewController: UIInputViewController {
     @IBOutlet var nextKeyboardButton: UIButton
     
     var buttons : NSArray?
+    var friends : Array<Friend>?
+    var currentSearch : String?
     
 
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
@@ -24,7 +26,7 @@ class KeyboardViewController: UIInputViewController {
     }
     
     func setUpButtons() {
-        
+    
         var mutButtons = NSMutableArray()
         
         let lowerLetters = "qwertyuiop.asdfghjkl.zxcvbnm"
@@ -130,7 +132,25 @@ class KeyboardViewController: UIInputViewController {
     func keyLongPressed(sender: UIGestureRecognizer) {
         let proxy = self.textDocumentProxy as UITextDocumentProxy
         let btn = sender.view as KeyButton
-        proxy.insertText("[\(btn.key!)]")
+        
+        var friend : Friend?
+        
+        if btn.key == "f" {
+            friend = self.friends![0]
+        }
+        else if btn.key == "m" {
+            friend = self.friends![1]
+        }
+        else if btn.key == "s" {
+            friend = self.friends![2]
+        }
+        
+        if (friend) {
+            btn.setBackgroundImage(friend!.image, forState: UIControlState.Normal)
+            proxy.insertText(friend!.name)
+            
+        }
+        
     }
     
     func numbersAction() {
@@ -154,6 +174,8 @@ class KeyboardViewController: UIInputViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpButtons()
+        
+        self.friends = DataProvider.friends()
     }
 
     override func didReceiveMemoryWarning() {
@@ -180,3 +202,23 @@ class KeyboardViewController: UIInputViewController {
     }
 
 }
+
+
+/*
+#pragma mark - Private methods
+
+- (void)setFBListForMyfriendsListTableController
+{
+if([self.facebook accessToken]) {
+NSURL *url = [NSURL URLWithString:[@"https://graph.facebook.com/me/friends?access_token=" stringByAppendingString:self.facebook.accessToken]];
+NSURLRequest *request = [NSURLRequest requestWithURL:url];
+
+AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+[self.myFriendsListTableController setDisplayedFriends:[JSON friendsFromJSON]];
+} failure:nil];
+
+[operation start];
+}
+
+}
+*/
