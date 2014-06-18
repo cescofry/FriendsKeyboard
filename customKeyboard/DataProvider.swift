@@ -7,7 +7,7 @@
 
 import UIKit
 
-let DataProviderPath = "https://ziofritz.s3.amazonaws.com/fb-friends.json"
+let DataProviderPath = "https://raw.githubusercontent.com/cescofry/FriendsKeyboard/master/fb-friends.json"
 
 
 class Friend {
