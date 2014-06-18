@@ -3,7 +3,7 @@
 
 iOS8 keyboard experiment that implements basic keyboard functionality + adds some of your friends thumbnail on long key press. Created as hack project on iOS London D8 Night.
 
-![Alt Screenshot](https://ziofritz.s3.amazonaws.com/testKeyboard.png)
+![Alt Screenshot](testKeyboard.png)
 
 ##TODO://
 Plenty more to do:
